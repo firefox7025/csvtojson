@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/csvtojson.iml" filepath="$PROJECT_DIR$/.idea/modules/csvtojson.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/csvtojson_main.iml" filepath="$PROJECT_DIR$/.idea/modules/csvtojson_main.iml" group="csvtojson" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/csvtojson_test.iml" filepath="$PROJECT_DIR$/.idea/modules/csvtojson_test.iml" group="csvtojson" />
+    </modules>
+  </component>
+</project>
