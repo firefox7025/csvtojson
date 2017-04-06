@@ -26,17 +26,24 @@ public class Application {
         Logger logger = LogManager.getRootLogger();
 
         try {
-            if (args.length == 2) {
+            if (args.length == 2 && new File(args[0]).isFile() || args.length == 1 && new File(args[0]).isDirectory()) {
                 File input = new File(args[0]);
-                File output = new File(args[1]);
+                File output = new File(input.getName() + ".json");
+
+
+
+                if(input.isDirectory()){
+                    for(File f : input.listFiles()){
+                        output = new File(f.getPath().replace("csv", "json"));
+                        List<Map<?, ?>> data = readObjectsFromCsv(f);
+                        writeAsJson(data, output);
+                    }
+                }
+
 
                 if(!input.exists()){
                     logger.fatal("Input file does not exist.");
                     System.exit(-1);
-                }
-
-                if(!output.exists()){
-                    output.createNewFile();
                 }
 
                 List<Map<?, ?>> data = readObjectsFromCsv(input);
@@ -48,7 +55,7 @@ public class Application {
                 logger.info("The correct number of arguments is two, the first being the csv file, the second being the the output destination.");
             }
         } catch (Exception e) {
-
+            e.getCause();
 
         }
 
